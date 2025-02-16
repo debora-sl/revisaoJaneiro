@@ -1,0 +1,43 @@
+/* Reset básico para padronizar estilos entre navegadores */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Removendo estilos de lista */
+ul, ol {
+    list-style: none;
+}
+
+/* Removendo sublinhado dos links */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/* Garantindo que os elementos ocupem toda a largura disponível */
+html, body {
+    width: 100%;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    line-height: 1.5;
+    background-color: #f8f9fa; /* Cor de fundo opcional */
+    color: #333; /* Cor do texto padrão */
+}
+
+/* Removendo estilos padrões de botões */
+button, input, textarea {
+    font-family: inherit;
+    border: none;
+    outline: none;
+    background: none;
+}
+
+/* Melhorando a aparência de imagens */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
