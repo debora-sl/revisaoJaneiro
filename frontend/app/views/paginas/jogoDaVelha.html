@@ -1,0 +1,46 @@
+<body>
+    <header class="header-forca">
+        <div>
+            <h2>Jogo da Forca</h2>
+            <a ui-sref="home">Home</a>
+        </div>
+    </header>
+
+    <div class="input-container" ng-show="configuracaoJogo.passoJogo == 1">
+        <input type="password" ng-model="configuracaoJogo.palavra">
+        <input type="button" value="Salvar Palavra" ng-click="salvarPalavra()">
+    </div>
+
+    <div ng-show="configuracaoJogo.passoJogo == 2">
+
+        <div class="forca-status-jogo">
+            <p class="forca-status-campo">{{configuracaoJogo.palavraResolvida}}</p>
+            <p class="forca-status-campo">{{configuracaoJogo.letrasErradas}}</p>
+            <p class="forca-status-campo">{{configuracaoJogo.quantidadeErros}}</p>
+            <p class="mensagem">{{mensagem}}</p>
+        </div>
+
+        <div class="forca-container">
+            <div class="forca">
+                <div class="poste"></div>
+                <div class="barra"></div>
+                <div class="corda"></div>
+                <div class="cabeca" ng-show="configuracaoJogo.quantidadeErros>=1"></div>
+                <div class="corpo" ng-show="configuracaoJogo.quantidadeErros>=2"></div>
+                <div class="braco-esq" ng-show="configuracaoJogo.quantidadeErros>=3"></div>
+                <div class="braco-dir" ng-show="configuracaoJogo.quantidadeErros>=4"></div>
+                <div class="perna-esq" ng-show="configuracaoJogo.quantidadeErros>=5"></div>
+                <div class="perna-dir" ng-show="configuracaoJogo.quantidadeErros>=6"></div>
+            </div>
+        </div>
+
+        <div class="input-container">
+            <input type="text" ng-model="letras">
+            <input type="button" value="Tentar" maxlength="1" ng-click="armazenaLetras()">
+            <div>
+                <input type="button" value="Resetar" ng-click="recomecarJogo()" id="botaoResetar">
+            </div>
+        </div>
+
+    </div>
+</body>
