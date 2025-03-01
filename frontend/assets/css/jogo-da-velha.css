@@ -1,4 +1,5 @@
 .game-container {
+    
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -24,14 +25,14 @@
     justify-content: center;
     font-size: 36px;
     font-weight: bold;
-    background-color: #e6e6e6;
+    background: linear-gradient(90deg, #01a187, #0ffdde);
     border-radius: 5px;
     cursor: pointer;
     transition: 0.3s;
 }
 
 .cell:hover {
-    background-color: #d4d4d4;
+    background: linear-gradient(90deg, #007c68, #0ffdde);
 }
 
 .status {
