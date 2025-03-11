@@ -16,4 +16,7 @@ use App\Http\Controllers\JogoDaVelhaController;
 |
 */
 
-Route::prefix('jogoDaVelha')->group(function () {});
+Route::prefix('jogoDaVelha')->group(function () {
+    Route::get('carregarPosicoes/{idJogo}', [JogoDaVelhaController::class, 'carregarPosicoes']);
+    Route::post('inserir', [JogoDaVelhaController::class, 'inserir']);
+});
