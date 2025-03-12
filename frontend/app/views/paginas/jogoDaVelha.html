@@ -5,7 +5,8 @@
             <a ui-sref="home">Home</a>
         </div>
     </header>
-
+    <br>
+    <h3>Sessão Jogo: #{{idJogo}} - Peça: {{jogador}}</h3>
     <!-- <div class="idjogo-container">
         <label for="idjogo" class="idjogo-label">IDJOGO:</label>
         <input type="text" id="idjogo" class="idjogo-input" value="0" readonly>
@@ -13,17 +14,18 @@
 
     <div class="game-container">
         <div class="board">
-            <div class="cell"></div>
-            <div class="cell"></div>
-            <div class="cell"></div>
-            <div class="cell"></div>
-            <div class="cell"></div>
-            <div class="cell"></div>
-            <div class="cell"></div>
-            <div class="cell"></div>
-            <div class="cell"></div>
+            <div class="cell">{{matriz.pos1}}</div>
+            <div class="cell">{{matriz.pos2}}</div>
+            <div class="cell">{{matriz.pos3}}</div>
+            <div class="cell">{{matriz.pos4}}</div>
+            <div class="cell">{{matriz.pos5}}</div>
+            <div class="cell">{{matriz.pos6}}</div>
+            <div class="cell">{{matriz.pos7}}</div>
+            <div class="cell">{{matriz.pos8}}</div>
+            <div class="cell">{{matriz.pos9}}</div>
         </div>
-        <!-- <p class="status">Vez do jogador X</p>
-        <button class="reset-button">Reiniciar Jogo</button> -->
+
+        <p class="status">Vez do jogador X</p>
+        <button class="reset-button">Reiniciar Jogo</button>
     </div>
 </body>
