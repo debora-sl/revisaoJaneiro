@@ -12,7 +12,8 @@ angular.module('meuApp', ['ui.router'])
                 controller: 'ForcaController'
             })
             .state('jogoDaVelha', {
-                url: '/jogoDaVelha',
+                // passando variaveis na url /:var1/:var2
+                url: '/jogoDaVelha/:var1/:var2',
                 templateUrl: 'app/views/paginas/jogoDaVelha.html',
                 controller: 'JogoDaVelhaController'
             })
