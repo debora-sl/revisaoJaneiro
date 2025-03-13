@@ -11,9 +11,9 @@ angular.module('meuApp')
             pos3: 'O',
             pos4: '',
             pos5: 'X',
-            pos6: '',
+            pos6: 'O',
             pos7: 'O',
-            pos8: '',
+            pos8: 'O',
             pos9: 'O',
         }
     })
