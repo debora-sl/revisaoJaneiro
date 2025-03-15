@@ -6,14 +6,14 @@ angular.module('meuApp')
         $scope.jogador = $stateParams.var2;
 
         $scope.matriz = {
-            pos1: 'O',
+            pos1: '',
             pos2: '',
             pos3: 'O',
             pos4: '',
             pos5: 'X',
-            pos6: 'O',
-            pos7: 'O',
-            pos8: 'O',
-            pos9: 'O',
+            pos6: '',
+            pos7: '',
+            pos8: '',
+            pos9: '',
         }
     })
