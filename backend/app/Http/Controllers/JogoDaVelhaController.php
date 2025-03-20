@@ -37,7 +37,7 @@ class JogoDaVelhaController extends Controller
     {
         $jogoDaVelha = JogoDaVelha::where('idJogo', $idJogo)->get();
 
-        if (!$jogoDaVelha == null)
+        if ($jogoDaVelha == null)
             return response('Erro: ', 404);
 
         return response('Ok: ' . $jogoDaVelha, 200);
