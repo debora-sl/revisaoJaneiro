@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Model;
 class JogoDaVelha extends Model
 {
     use HasFactory;
-    protected $table = 'jogoDaVelha';
+    protected $table = 'jogodavelha';
     use SoftDeletes;
 
     public static function checarVitoria($idJogo)
@@ -32,15 +32,15 @@ class JogoDaVelha extends Model
 
         // Organizar as posições por jogador em um array
         $posicoesPorJogador = [
-            'x' => [],
-            'o' => []
+            'X' => [],
+            'O' => []
         ];
 
         foreach ($posicoes as $posicao) {
-            if ($posicao->jogador === 'x') {
-                $posicoesPorJogador['x'][] = $posicao->posicao;
-            } elseif ($posicao->jogador === 'o') {
-                $posicoesPorJogador['o'][] = $posicao->posicao;
+            if ($posicao->jogador === 'X') {
+                $posicoesPorJogador['X'][] = $posicao->posicao;
+            } elseif ($posicao->jogador === 'O') {
+                $posicoesPorJogador['O'][] = $posicao->posicao;
             }
         }
 
@@ -55,11 +55,11 @@ class JogoDaVelha extends Model
             return false;  // Não encontrou vitória
         };
 
-        // Verificar vitória para o jogador 'x'
-        $jogadorXVenceu = $verificarVitoria('x');
+        // Verificar vitória para o jogador 'X'
+        $jogadorXVenceu = $verificarVitoria('X');
 
         // Verificar vitória para o jogador 'o'
-        $jogadorOVenceu = $verificarVitoria('o');
+        $jogadorOVenceu = $verificarVitoria('O');
 
         // Verificar se todas as posições foram preenchidas (jogo deu velha)
         $posicoesPreenchidas = count($posicoes);
