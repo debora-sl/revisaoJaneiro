@@ -40,6 +40,6 @@ class JogoDaVelhaController extends Controller
         if ($jogoDaVelha == null)
             return response('Erro: ', 404);
 
-        return response('Ok: ' . $jogoDaVelha, 200);
+        return response($jogoDaVelha, 200);
     }
 }
