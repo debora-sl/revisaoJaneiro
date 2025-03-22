@@ -79,6 +79,6 @@ angular.module('meuApp')
         }
 
         // função chamadas
-        intervalId = setInterval(carregaPosicoes, 5000);
+        intervalId = setInterval(carregaPosicoes, 1000);
 
     })
