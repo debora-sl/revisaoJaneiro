@@ -6,6 +6,7 @@ angular.module('meuApp')
         $scope.jogador = $stateParams.var2;
         $url = 'http://localhost:8000/';
         $urlCarregarPosicoes = 'api/jogoDaVelha/carregarPosicoes/';
+        $urlInserirPosicoes = 'api/jogoDaVelha/inserir';
 
 
         $scope.matriz = {
@@ -45,20 +46,39 @@ angular.module('meuApp')
             }
         }
 
-        // pegando o jogo
-        $http.get($url + $urlCarregarPosicoes + $scope.idJogo).then(function (response) {
-            console.log('Funcionou', response);
-            if (response.status == 200) {
-                console.log('Antes da função');
+        // função que carrega as posições
+        carregaPosicoes = function () {
+            $http.get($url + $urlCarregarPosicoes + $scope.idJogo).then(function (response) {
+                console.log('Funfou', response);
+                if (response.status == 200) {
+                    alinhaPosicoes(response.data);
 
-                alinhaPosicoes(response.data);
+                }
 
-                console.log('Depois da Função');
+            }, function (error) {
+                console.log(error);
 
-            }
+            });
+        }
 
-        }, function (error) {
-            console.log(error);
+        // função que inseri posições
+        $scope.inserirPosicao = function (posicao) {
+            post = {};
+            post.jogador = $scope.jogador;
+            post.posicao = posicao;
+            post.idJogo = $scope.idJogo;
+            $http.post($url + $urlInserirPosicoes, post).then(function (response) {
 
-        });
+                console.log('Funfou', response);
+
+            }, function (error) {
+                console.log('Bosta, não funfou', error);
+
+            })
+
+        }
+
+        // função chamadas
+        intervalId = setInterval(carregaPosicoes, 5000);
+
     })
