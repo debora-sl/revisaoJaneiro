@@ -63,6 +63,27 @@ angular.module('meuApp')
 
         // função que inseri posições
         $scope.inserirPosicao = function (posicao) {
+            jogador = $scope.jogador;
+            if (posicao == 1) {
+                $scope.matriz.pos1 = jogador;
+            } else if (posicao == 2) {
+                $scope.matriz.pos2 = jogador;
+            } else if (posicao == 3) {
+                $scope.matriz.pos3 = jogador;
+            } else if (posicao == 4) {
+                $scope.matriz.pos4 = jogador;
+            } else if (posicao == 5) {
+                $scope.matriz.pos5 = jogador;
+            } else if (posicao == 6) {
+                $scope.matriz.pos6 = jogador;
+            } else if (posicao == 7) {
+                $scope.matriz.pos7 = jogador;
+            } else if (posicao == 8) {
+                $scope.matriz.pos8 = jogador;
+            } else if (posicao == 9) {
+                $scope.matriz.pos9 = jogador;
+            }
+
             post = {};
             post.jogador = $scope.jogador;
             post.posicao = posicao;
@@ -70,15 +91,72 @@ angular.module('meuApp')
             $http.post($url + $urlInserirPosicoes, post).then(function (response) {
 
                 console.log('Funfou', response);
+                if (response.status == 201) {
+                    if (response.data.checarVitoria == 'Deu velha!') {
+                        Swal.fire({
+                            icon: "error",
+                            title: "Oops...",
+                            text: "Deu velha!",
+                            timer: 5000
+                        });
+                    }
+                    else if (response.data.checarVitoria == 'Jogador O venceu!') {
+
+                        if ($scope.jogador == 'O') {
+                            Swal.fire({
+                                icon: "success",
+                                title: "Boaaaaa",
+                                text: "Você venceu!!!!",
+                                timer: 6000
+                            });
+                        } else if ($scope.jogador == 'X') {
+                            Swal.fire({
+                                icon: "error",
+                                title: "Oops...",
+                                text: "Ruim demais!!! Perdeu",
+                                timer: 6000
+                            });
+                        }
+
+                    }
+                    else if (response.data.checarVitoria == 'Jogador X venceu!') {
+
+                        if ($scope.jogador == 'X') {
+                            Swal.fire({
+                                icon: "success",
+                                title: "Boaaaaa",
+                                text: "Você venceu!!!!",
+                                timer: 6000
+                            });
+                        } else if ($scope.jogador == 'O') {
+                            Swal.fire({
+                                icon: "error",
+                                title: "Oops...",
+                                text: "Ruim demais!!! Perdeu",
+                                timer: 6000
+                            });
+                        }
+
+                    }
+
+                }
 
             }, function (error) {
                 console.log('Bosta, não funfou', error);
-
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: error.data,
+                    timer: 2000
+                });
             })
 
         }
 
         // função chamadas
-        intervalId = setInterval(carregaPosicoes, 1000);
+        intervalId = setInterval(carregaPosicoes, 5000);
+
+        // chamando a função que carrega as posições
+        carregaPosicoes();
 
     })
