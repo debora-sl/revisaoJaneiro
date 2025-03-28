@@ -154,7 +154,7 @@ angular.module('meuApp')
         }
 
         // função chamadas
-        intervalId = setInterval(carregaPosicoes, 5000);
+        intervalId = setInterval(carregaPosicoes, 7000);
 
         // chamando a função que carrega as posições
         carregaPosicoes();
